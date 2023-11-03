@@ -15,7 +15,7 @@ int main(void)
 
     fd = open("file.txt", O_RDONLY);
     res = get_next_line(fd);
-    printf("Return > %s", res);
-    //res1 = get_next_line(fd);
-    //printf("Return > %s", res1);
+    printf("Return 1 > %s\n", res);
+    res1 = get_next_line(fd);
+    printf("Return 2 > %s\n", res1);
 }

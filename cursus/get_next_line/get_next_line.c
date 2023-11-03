@@ -6,7 +6,7 @@
 /*   By: damazzin <damazzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:12:07 by damazzin          #+#    #+#             */
-/*   Updated: 2023/10/31 17:33:50 by damazzin         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:36:01 by damazzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ char	*ft_strchr(const char *s, int c)
 	return (str);
 }
 
+char	*ft_cleaner(char *buf, int i)
+{
+	char *clean;
+	int j;
+	j = 0;
+
+	clean = (char*) malloc(100*sizeof(char));
+	while(buf[i + j] != '\0')
+    {
+        clean[j] = buf[i + j];
+        j++;
+    }
+	printf("¿Que me quedó limpio? -> %s \n", clean);
+	return(clean);
+}
+
 char	*get_next_line(int fd)
 {
 	char	*buf;
@@ -97,5 +113,6 @@ char	*get_next_line(int fd)
 	temp = ft_strjoin(temp, temp2);
 	//printf("temp final > %s\n", temp);
 	printf("buf > %s\n", buf);
+//	buf = ft_cleaner(buf, i + 1);
     return(temp);
 }
