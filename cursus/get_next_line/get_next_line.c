@@ -6,7 +6,7 @@
 /*   By: damazzin <damazzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:12:07 by damazzin          #+#    #+#             */
-/*   Updated: 2023/11/03 17:36:01 by damazzin         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:27:17 by damazzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,30 @@ char	*ft_cleaner(char *buf, int i)
         clean[j] = buf[i + j];
         j++;
     }
-	printf("¿Que me quedó limpio? -> %s \n", clean);
+	printf("Cleaner -> %s \n", clean);
 	return(clean);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*buf;
+	static char	*buf;
 	int		chars_read;
 	char	*temp;
 	char	*temp2;
 	int		i;
 
 	temp = "\0";
+	if(buf == NULL)
+		buf = (char*) malloc(100*sizeof(char));
+	else
+		temp = buf;
+	printf("¿Y a la vuelta? > %s\n", buf);
+//	temp2 = "\0";
     i = 0;
 	//fd = open("file.txt", O_RDONLY);
 	while ((chars_read = read(fd, buf, 5)))
 	{
-		buf[chars_read] = '\0';
+		//buf[chars_read] = '\0';
 		if (ft_strchr(buf, '\n') == NULL)
 		{
 			temp = ft_strjoin(temp, buf);
@@ -105,14 +111,15 @@ char	*get_next_line(int fd)
 			i++;
 		}
 		else
-			//printf("remanente -> %s", buf);
 			break ;
 	}
+	//Al hacer otra llamada se sobreescribe el buf 
 	//printf("conta -> %d", i);
 	temp2 = strndup(buf, i);
 	temp = ft_strjoin(temp, temp2);
 	//printf("temp final > %s\n", temp);
 	printf("buf > %s\n", buf);
-//	buf = ft_cleaner(buf, i + 1);
+	buf = ft_cleaner(buf, i + 1);
+	printf("¿Que hay? > %s\n", buf);
     return(temp);
 }
