@@ -6,15 +6,11 @@
 /*   By: damazzin <damazzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:12:07 by damazzin          #+#    #+#             */
-/*   Updated: 2023/11/07 15:27:17 by damazzin         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:10:52 by damazzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <libc.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
 {

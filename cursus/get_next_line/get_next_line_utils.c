@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damazzin <damazzin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 13:12:37 by damazzin          #+#    #+#             */
-/*   Updated: 2023/11/09 13:12:39 by damazzin         ###   ########.fr       */
+/*   Created: 2023/10/03 18:12:28 by damazzin          #+#    #+#             */
+/*   Updated: 2023/10/03 18:12:29 by damazzin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-int main(void)
-{
-    char *res;
-    char *res1;
-    int fd;
-
-    fd = open("file.txt", O_RDONLY);
-    res = get_next_line(fd);
-    printf("Return 1 > %s\n", res);
-    res1 = get_next_line(fd);
-    printf("Return 2 > %s\n", res1);
-}
